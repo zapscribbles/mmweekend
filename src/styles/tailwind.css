@@ -8,14 +8,42 @@
   }
 }
 
-nav {
+.bg-mint {
   background-color: #D1E3DD;
 }
 
-.btn {
-  @apply px-3 py-2 rounded-md text-sm font-medium text-blue-900 hover:bg-blue-200;
+nav.btn {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-blue-800 hover:bg-blue-200;
 }
 
-.btn.active {
- @apply bg-blue-900 text-white;
+nav.btn.active {
+ @apply bg-blue-800 text-white;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-md text-sm font-medium bg-blue-800 text-white hover:bg-blue-900 inline-flex;
+}
+
+#warrandyte-map .jvm-zoom-btn {
+  width: 30px;
+  height: 30px;
+  padding: 9px;
+  font-size: 20px;
+}
+
+#warrandyte-map .jvm-zoom-btn.jvm-zoomout {
+  top: 50px;
+}
+
+#warrandyte-map text.jvm-marker {
+  transform: translateY(20px) translateX(-20px);
+}
+
+#warrandyte-map text.jvm-marker[data-index='0'] {
+  transform: translateX(8px) translateY(-5px);
+  font-weight: bold;
+}
+
+#warrandyte-map text.jvm-marker[data-index='1'] {
+  transform: translateX(-60px) translateY(-20px);
 }

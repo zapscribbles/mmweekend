@@ -9,6 +9,9 @@ module.exports = {
       extend: {
         colors: {
           change: 'black',
+          myPurple: '#7C3AED',
+          myBlue: '#1E40AF',
+          myDarkblue: '#1E3A8A'
         },
       },
     },

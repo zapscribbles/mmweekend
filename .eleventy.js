@@ -37,9 +37,12 @@ module.exports = function (eleventyConfig) {
         return content;
     });
 
-    // Tell Eleventy to pass things through Alpine
+    // Bring across NPM modules
     eleventyConfig.addPassthroughCopy({
-        './node_modules/alpinejs/dist/alpine.js': './common-js/alpine.js'
+        './node_modules/alpinejs/dist/alpine.js': './common-js/alpine.js',
+        './node_modules/jsvectormap/dist/js/jsvectormap.min.js': './common-js/jsvectormap.min.js',
+        './node_modules/jsvectormap/dist/maps/*.js': './common-js/maps/',
+        './node_modules/jsvectormap/dist/css/jsvectormap.min.css': './jsvectormap.min.css',
     });
     // Could supabase be used the same way alpine is here?
 
