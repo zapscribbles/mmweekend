@@ -12,6 +12,16 @@
   background-color: #D1E3DD;
 }
 
+button:focus {
+  outline: none;
+}
+
+.slideDownWrapper {
+  transition:height 0.5s ease-out;
+  height:0;
+  overflow:hidden;
+}
+
 nav.btn {
   @apply px-3 py-2 rounded-md text-sm font-medium text-blue-800 hover:bg-blue-200;
 }
