@@ -1,6 +1,7 @@
 ---
 title: Murder Mystery Weekend
 js: 
+needsMap: false
 standardMap: world
 customMap: australia
 ---
@@ -18,10 +19,15 @@ customMap: australia
     {% block head %}{% endblock %}
 
     <script src="/common-js/alpine.js?v={% version %}"></script>
-    <link rel="stylesheet" href="jsvectormap.min.css"/>
-    <script src="/common-js/jsvectormap.min.js"></script>
-    <script src="/common-js/maps/{{ standardMap }}.js"></script>
-    <script src="{{ customMap }}.js"></script>
+    <script src="/common-js/supabase.js?v={% version %}"></script>
+    <script src="/supabaseFuncs.js"></script>
+    
+    {% if needsMap %}
+      <link rel="stylesheet" href="jsvectormap.min.css"/>
+      <script src="/common-js/jsvectormap.min.js"></script>
+      <script src="/common-js/maps/{{ standardMap }}.js"></script>
+      <script src="/{{ customMap }}.js"></script>
+    {% endif %}
 
     {% if js %}
       <script src="{{ js }}?v={% version %}"></script>

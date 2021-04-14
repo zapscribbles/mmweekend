@@ -12,8 +12,8 @@
   background-color: #D1E3DD;
 }
 
-button:focus {
-  outline: none;
+:focus {
+  outline: none !important;
 }
 
 .slideDownWrapper {

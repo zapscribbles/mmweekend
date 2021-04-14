@@ -1,0 +1,90 @@
+---
+layout: body
+js: rsvp.js
+eleventyNavigation:
+  key: RSVP
+---
+<div x-data="componentData()" class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+	<div class="sm:mx-auto sm:w-full sm:max-w-md">
+		<img class="mx-auto h-12 w-auto" src="/assets/logo.png" alt="Workflow">
+		<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">RSVP</h2>
+	</div>
+
+	<div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+		<div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+			<form class="space-y-6">
+
+				<div>
+					<label for="email" class="block text-sm font-medium text-gray-700">Name</label>
+					<div class="mt-1">
+						<input x-model="name" id="name" name="name" type="text" autocomplete="name" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+					</div>
+				</div>
+
+				<div>
+					<label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+					<div class="mt-1">
+						<input x-model="email" id="email" name="email" type="email" autocomplete="email" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+					</div>
+				</div>
+
+				<fieldset>
+					<div class="bg-white rounded-md -space-y-px">
+						<label x-model="RSVP" :class="{ 'bg-green-50 border-green-200 z-10' : RSVP == 'yes', 'border-gray-200': RSVP != 'yes' }" class="rounded-tl-md rounded-tr-md relative border p-4 flex cursor-pointer">
+							<input type="radio" name="rsvp" value="yes" class="h-4 w-4 mt-1 cursor-pointer text-green-600 border-gray-300">
+							<div class="ml-3 flex flex-col">
+								<span :class="{ 'text-green-900' : RSVP == 'yes', 'text-gray-900': RSVP != 'yes' }" class="block text-sm font-medium">Yes, I am so in!</span>
+								<span :class="{ 'text-green-700' : RSVP == 'yes', 'text-gray-500': RSVP != 'yes' }" class="block text-sm">You will need to transfer your $200 before 28 April to confirm your spot!</span>
+							</div>
+						</label>
+						<label x-model="RSVP" :class="{ 'bg-yellow-50 border-yellow-200 z-10' : RSVP == 'maybe', 'border-gray-200': RSVP != 'maybe' }" class="relative border p-4 flex cursor-pointer">
+							<input type="radio" name="rsvp" value="maybe" class="h-4 w-4 mt-1 cursor-pointer text-yellow-600 border-gray-300">
+							<div class="ml-3 flex flex-col">
+								<span :class="{ 'text-yellow-900' : RSVP == 'maybe', 'text-gray-900': RSVP != 'maybe' }" class="block text-sm font-medium">I'm not sure</span>
+								<span :class="{ 'text-yellow-700' : RSVP == 'maybe', 'text-gray-500': RSVP != 'maybe' }" class="block text-sm">We'll get in touch closer to the 28th to see where you stand. If you need more info to make a decision, don't hesitate to get in touch!</span>
+							</div>
+						</label>
+						<label x-model="RSVP" :class="{ 'bg-red-50 border-red-200 z-10' : RSVP == 'no', 'border-gray-200': RSVP != 'no' }" class="rounded-bl-md rounded-br-md relative border p-4 flex cursor-pointer">
+							<input type="radio" name="rsvp" value="no" class="h-4 w-4 mt-1 cursor-pointer text-red-600 border-gray-300">
+							<div class="ml-3 flex flex-col">
+								<span :class="{ 'text-red-900' : RSVP == 'no', 'text-gray-900': RSVP != 'no' }" class="block text-sm font-medium">Unfortunately I definitely can't make it</span>
+								<span :class="{ 'text-red-700' : RSVP == 'no', 'text-gray-500': RSVP != 'no' }" class="block text-sm">We're sad you can't come along, but know you will be there in spirit!</span>
+							</div>
+						</label>
+					</div>
+				</fieldset>
+
+				<div x-show="RSVP == 'yes' || RSVP == 'maybe'">
+					<div>
+						<label for="password" class="block text-sm font-medium text-gray-700">Secret word</label>
+						<p class="block text-sm font-medium text-gray-700">(choose a single word that you will remember to help identify you when you come back to this site)</p>
+						<div class="mt-1">
+							<input x-model="password" id="password" name="password" type="text" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+						</div>
+					</div>
+
+					<div>
+						<label for="password" class="block text-sm font-medium text-gray-700">Character Gender</label>
+						<p class="block text-sm font-medium text-gray-700">(choose a single word that you will remember to help identify you when you come back to this site)</p>
+						<div class="mt-1">
+							<input x-model="password" id="password" name="password" type="text" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+						</div>
+					</div>
+
+					<div>
+						<label for="password" class="block text-sm font-medium text-gray-700">Anything else we should know?</label>
+						<p class="block text-sm font-medium text-gray-700">(choose a single word that you will remember to help identify you when you come back to this site)</p>
+						<div class="mt-1">
+							<input x-model="password" id="password" name="password" type="text" autocomplete="current-password" required class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">RSVP</button>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</div>

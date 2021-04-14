@@ -40,6 +40,7 @@ module.exports = function (eleventyConfig) {
     // Bring across NPM modules
     eleventyConfig.addPassthroughCopy({
         './node_modules/alpinejs/dist/alpine.js': './common-js/alpine.js',
+        './node_modules/@supabase/supabase-js/dist/umd/supabase.js': './common-js/supabase.js',
         './node_modules/jsvectormap/dist/js/jsvectormap.min.js': './common-js/jsvectormap.min.js',
         './node_modules/jsvectormap/dist/maps/*.js': './common-js/maps/',
         './node_modules/jsvectormap/dist/css/jsvectormap.min.css': './jsvectormap.min.css',

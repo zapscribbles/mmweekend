@@ -11,10 +11,12 @@ module.exports = {
           change: 'black',
           myPurple: '#7C3AED',
           myBlue: '#1E40AF',
-          myDarkblue: '#1E3A8A'
+          myDarkBlue: '#1E3A8A'
         },
       },
     },
     variants: {},
-    plugins: [],
+    plugins: [
+      require('@tailwindcss/forms'),
+    ],
   }
