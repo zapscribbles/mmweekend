@@ -81,22 +81,8 @@ faqs:
 	</div>
 </div>
 
-<!-- This example requires Tailwind CSS v2.0+ -->
-<div class="bg-white">
-	<div class="max-w-7xl mx-auto text-center py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
-		<h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-			<span class="block">Let us know if you <span class="text-green-500">can</span>, <span class="text-red-500">can't</span> or <span class="text-yellow-600">might</span> be able to come!</span>
-			<span class="block">We would love an indication of numbers as soon as possible.</span>
-		</h2>
-		<div class="mt-8 flex justify-center">
-			<div class="inline-flex rounded-md shadow">
-				<a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-myBlue hover:bg-myDarkblue">RSVP Here</a>
-			</div>
-		</div>
-	</div>
-</div>
+{% include "partials/rsvpCTA.njk" %}
 
-<!-- This example requires Tailwind CSS v2.0+ -->
 <div class="relative bg-white pt-16 pb-16 overflow-hidden">
 	<div class="relative">
 		<div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
@@ -210,3 +196,5 @@ faqs:
 		</div>
 	</div>
 </div>
+
+{% include "partials/rsvpCTA.njk" %}
