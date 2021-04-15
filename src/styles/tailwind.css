@@ -8,6 +8,12 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+ a {
+   @apply text-blue-700;
+ }
 .bg-mint {
   background-color: #D1E3DD;
 }
