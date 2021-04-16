@@ -32,7 +32,7 @@ var map = new jsVectorMap({
         initial: { fill: "#1E40AF" },
         selected: { fill: "#7C3AED" }
     },
-    selectedMarkers: [0, 2],
+    selectedMarkers: [0],
     labels: {
         markers: {
             render: marker => marker.name

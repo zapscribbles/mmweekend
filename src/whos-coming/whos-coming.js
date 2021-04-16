@@ -6,7 +6,7 @@ function componentData() {
     return {
         init() {
             getData('rsvps', 'Submission Date').then(response => {
-                console.log(response)
+                // console.log(response)
                 this.rsvps = response.data
 
                 this.rsvps.sort((a, b) => {
