@@ -1,0 +1,67 @@
+---
+layout: body
+js: whos-coming.js
+eleventyNavigation:
+  key: Who's Coming?
+---
+<div x-data="componentData()" x-init="init()">
+    <div id="rsvp-yes" class="bg-green-100 border-2 border-green-400 rounded-2xl p-5 m-4">
+        <div class="text-xl text-center p-10 text-green-700">Able to Make It (<span x-text="counts.totalYes"></span>)
+        </div>
+        <div class="flex">
+            <div id="staying-at-manor" class="bg-purple-100 border-2 border-purple-400 rounded-2xl text-purple-900 w-1/2 m-4">
+                <div class="text-xl text-center p-10">Staying at the Manor (<span class="text-green-700" x-text="counts.totalPaid"></span> / <span x-text="counts.staying"></span>)</div>
+                <div class="flex justify-center flex-wrap ">
+                    <template x-for="rsvp in rsvps" :key="rsvp">
+                        <div class="m-6 flex flex-col items-center" x-show="rsvp.response == 'yes' && rsvp.staying">
+                            <div x-text="rsvp['First Name'].toProperCase()"></div>
+                            <div class="flex justify-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <svg x-show="!rsvp.paid" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <svg x-show="rsvp.paid" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div id="staying-elsewhere" class="bg-blue-100 border-2 border-blue-400 rounded-2xl text-blue-900 w-1/2 m-4">
+                <div class="text-xl text-center p-10">Staying Elsewhere (<span x-text="counts.notStaying"></span>)</div>
+                <div class="flex justify-center flex-wrap ">
+                    <template x-for="rsvp in rsvps" :key="rsvp">
+                        <div class="m-6" x-text="rsvp['First Name'].toProperCase()" x-show="rsvp.response == 'yes' && !rsvp.staying"></div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="rsvp-maybe" class="bg-yellow-100 border-2 border-yellow-400 rounded-2xl p-5 m-4 text-yellow-700">
+        <div class="text-xl text-center p-10 ">Unsure (<span x-text="counts.totalMaybe"></span>)
+        </div>
+        <div class="flex justify-center flex-wrap ">
+            <template x-for="rsvp in rsvps" :key="rsvp">
+                <div class="m-6 flex flex-col items-center" x-show="rsvp.response == 'maybe'">
+                    <div x-text="rsvp['First Name'].toProperCase()"></div>
+                </div>
+            </template>
+        </div>
+    </div>
+
+    <div id="rsvp-no" class="bg-red-100 border-2 border-red-400 rounded-2xl p-5 m-4 text-red-700">
+        <div class="text-xl text-center p-10 ">Can't Make It (<span x-text="counts.totalNo"></span>)
+        </div>
+        <div class="flex justify-center flex-wrap ">
+            <template x-for="rsvp in rsvps" :key="rsvp">
+                <div class="m-6" x-show="rsvp.response == 'no'">
+                    <div x-text="rsvp['First Name'].toProperCase()"></div>
+                </div>
+            </template>
+        </div>
+    </div>
+</div>
