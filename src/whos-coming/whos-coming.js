@@ -42,14 +42,21 @@ function componentData() {
                             this.counts.totalPaid++;
                         }
 
-                        if (rsvp.Accommodation == 'I need to stay with you guys' ||
-                            rsvp.Accommodation == 'I want to stay with you guys, but if numbers fill up I can stay elsewhere' ||
-                            rsvp.Accommodation == 'I need to stay with you guys, and volunteer as blow-up-mattress tribute!') {
-                            rsvp.staying = true;
-                            this.counts.staying++;
-                        } else if (rsvp.Accommodation == 'I will just come for the murder mystery dinner and find other accomodation/go home after') {
-                            rsvp.staying = false;
-                            this.counts.notStaying++;
+                        switch (rsvp.Accommodation) {
+                            case 'I need to stay with you guys':
+                            case 'I want to stay with you guys, but if numbers fill up I can stay elsewhere':
+                                rsvp.staying = true;
+                                this.counts.staying++;
+                                rsvp.blowupVolunteer = false;
+                                break;
+                            case 'I need to stay with you guys, and volunteer as blow-up-mattress tribute!':
+                                rsvp.staying = true;
+                                this.counts.staying++;
+                                rsvp.blowupVolunteer = true;
+                                break;
+                            case 'I will just come for the murder mystery dinner and find other accomodation/go home after':
+                                rsvp.staying = false;
+                                this.counts.notStaying++;
                         }
                     });
                 }, 500);
@@ -67,4 +74,4 @@ function componentData() {
     }
 }
 
-// updateRow('rsvps', 'Submission_ID', 4943419004128731000, { paid: true } ).then(response => { console.log('update',response)});
+// updateRow('rsvps', 'First Name', 'Ellen', { paid: true } ).then(response => { console.log('update',response)});
