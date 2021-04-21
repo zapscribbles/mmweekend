@@ -1,0 +1,13 @@
+---
+layout: body
+js: test.js
+eleventyNavigation:
+  key: Test
+---
+<div x-data="componentData()" x-init="init()">
+    <div x-text="someText"></div>
+</div>
+<div>{{ moduleTest.testValue }}</div>
+<div>{{ moduleTest.envVariable }}</div>
+<div>{{ moduleTest.buildEnvVariable }}</div>
+<div>{{ moduleTest.myFunction('test') }}</div>
