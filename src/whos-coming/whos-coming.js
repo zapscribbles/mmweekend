@@ -42,22 +42,30 @@ function componentData() {
                             this.counts.totalPaid++;
                         }
 
-                        switch (rsvp.Accommodation) {
-                            case 'I need to stay with you guys':
-                            case 'I want to stay with you guys, but if numbers fill up I can stay elsewhere':
-                                rsvp.staying = true;
-                                this.counts.staying++;
-                                rsvp.blowupVolunteer = false;
-                                break;
-                            case 'I need to stay with you guys, and volunteer as blow-up-mattress tribute!':
-                                rsvp.staying = true;
-                                this.counts.staying++;
-                                rsvp.blowupVolunteer = true;
-                                break;
-                            case 'I will just come for the murder mystery dinner and find other accomodation/go home after':
-                                rsvp.staying = false;
-                                this.counts.notStaying++;
+                        if (rsvp.response == 'yes') {
+                            switch (rsvp.Accommodation) {
+                                case 'I need to stay with you guys':
+                                case 'I want to stay with you guys, but if numbers fill up I can stay elsewhere':
+                                    rsvp.staying = true;
+                                    this.counts.staying++;
+                                    rsvp.blowupVolunteer = false;
+                                    break;
+                                case 'I need to stay with you guys, and volunteer as blow-up-mattress tribute!':
+                                    rsvp.staying = true;
+                                    this.counts.staying++;
+                                    rsvp.blowupVolunteer = true;
+                                    break;
+                                default:
+                                    rsvp.staying = false;
+                                    this.counts.notStaying++;
+                                    rsvp.blowupVolunteer = false;
+                                    // console.log('identified not staying', humanReadableProxy(rsvp));
+                                    break;
+                            }
                         }
+
+                        rsvp.displayName = rsvp['First Name'].toProperCase() + ' ' + rsvp['Last Name'][0].toUpperCase() + '.';
+
                     });
                 }, 500);
             });
@@ -74,4 +82,4 @@ function componentData() {
     }
 }
 
-// updateRow('rsvps', 'First Name', 'Ellen', { paid: true } ).then(response => { console.log('update',response)});
+// updateRow('rsvps', 'First Name', 'quick').then(response => { console.log('delete', response)});

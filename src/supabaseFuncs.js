@@ -34,11 +34,11 @@ async function addRow(tableName, rowData) {
         ]);
 }
 
-async function deleteRow(tableName, rowData) {
+async function deleteRow(tableName, col, data) {
     return await supabase
         .from(tableName)
         .delete()
-        .match(rowData)
+        .eq(col, data)
 }
 
 async function updateRow(tableName, idCol, id, updateData) {
