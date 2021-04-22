@@ -2,11 +2,11 @@ const htmlmin = require('html-minifier');
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 require('dotenv').config();
 
-import { createClient } from '@supabase/supabase-js'
+// import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = 'https://djkwwhqdshosckmafubq.supabase.co'
-const supabaseKey = process.env.SUPABASE_KEY
-const supabase = createClient(supabaseUrl, supabaseKey)
+// const supabaseUrl = 'https://djkwwhqdshosckmafubq.supabase.co'
+// const supabaseKey = process.env.SUPABASE_KEY
+// const supabase = createClient(supabaseUrl, supabaseKey)
 
 const now = String(Date.now());
 
@@ -53,17 +53,16 @@ module.exports = function (eleventyConfig) {
         './node_modules/jsvectormap/dist/maps/*.js': './common-js/maps/',
         './node_modules/jsvectormap/dist/css/jsvectormap.min.css': './jsvectormap.min.css',
     });
-    // Could supabase be used the same way alpine is here?
 
-    
+    eleventyConfig.addJavaScriptFunction("myFunction", function (a, b) { return { someText: 'this is from config' } });
 
     return {
-        eleventyComputed: {
-            getRSVPs: async data => await supabase
-                    .from(tableName)
-                    .select('*')
-                    .order(orderCol == undefined ? 'id' : orderCol)
-        },
+        // eleventyComputed: {
+        //     getRSVPs: async data => await supabase
+        //             .from(tableName)
+        //             .select('*')
+        //             .order(orderCol == undefined ? 'id' : orderCol)
+        // },
         dir: {
             input: "src",
             output: "_site"

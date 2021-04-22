@@ -4,10 +4,23 @@ js: test.js
 eleventyNavigation:
   key: Test
 ---
-<div x-data="componentData()" x-init="init()">
-    <div x-text="someText"></div>
+<div x-data="ComponentData" x-init="init()">
+  <div x-text="someText"></div>
+
+  <ol>
+    <template x-for="row in someData" :key="row">
+      <li x-text="row"></li>
+    </template>
+  </ol>
 </div>
+{# <div x-data="window.myFunction()">
+    <div x-text="someText"></div>
+</div> #}
+{# <div x-data="{{ moduleTest.componentDataFromModule() | dump }}" x-init="init()">
+    <div x-text="someText"></div>
+</div> #}
 <div>{{ moduleTest.testValue }}</div>
 <div>{{ moduleTest.envVariable }}</div>
 <div>{{ moduleTest.buildEnvVariable }}</div>
 <div>{{ moduleTest.myFunction('test') }}</div>
+{# <div>{{ moduleTest.accessCompData() }}</div> #}
