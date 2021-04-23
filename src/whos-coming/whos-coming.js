@@ -49,11 +49,13 @@ function componentData() {
                                     rsvp.staying = true;
                                     this.counts.staying++;
                                     rsvp.blowupVolunteer = false;
+                                    rsvp.paid ? this.counts.beds++ : null;
                                     break;
                                 case 'I need to stay with you guys, and volunteer as blow-up-mattress tribute!':
                                     rsvp.staying = true;
                                     this.counts.staying++;
                                     rsvp.blowupVolunteer = true;
+                                    rsvp.paid ? this.counts.blowups++ : null;
                                     break;
                                 default:
                                     rsvp.staying = false;
@@ -77,7 +79,9 @@ function componentData() {
             totalMaybe: 0,
             totalNo: 0,
             staying: 0,
-            notStaying: 0
+            notStaying: 0,
+            beds: 0,
+            blowups: 0,
         }
     }
 }

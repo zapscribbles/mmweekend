@@ -10,7 +10,8 @@ eleventyNavigation:
         </div>
         <div class="flex">
             <div id="staying-at-manor" class="bg-purple-100 border-2 border-purple-400 rounded-2xl text-purple-900 w-1/2 m-4">
-                <div class="text-xl text-center p-10">Staying at the Manor (<span class="text-green-700" x-text="counts.totalPaid"></span> / <span x-text="counts.staying"></span>)</div>
+                <div class="text-xl text-center p-10 pb-0">Staying at the Manor (<span class="text-green-700" x-text="counts.totalPaid"></span> / <span x-text="counts.staying"></span>)</div>
+                <div class="text-l text-center pb-10"><span x-text="16 - counts.beds"></span> bed spots left, <span x-text="4 - counts.blowups"></span> blow-up spots</div>
                 <div class="flex justify-center flex-wrap ">
                     <div x-show="rsvps.length == 0" class="lds-ripple"><div></div><div></div></div>
                     <template x-for="(rsvp, index) in rsvps" :key="rsvp">
