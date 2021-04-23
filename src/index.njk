@@ -23,6 +23,8 @@ faqs:
   a: The house can sleep 16 people comfortably. We also have 3 super high quality blow ups (1 double and 2 singles). If you are later to confirm your RSVP and the 16 beds are already taken, you may get a blow up, but you will owe a little less to compensate (you can volunteer for this if you like!).
 - q: What if I just want to come for the murder mystery dinner and go home afterwards?
   a: This is totally fine! Just let us know and we will assign you a character etc. You will only need to pay a small amount to cover the cost of dinner and the game.
+- q: <i id="flights-faq-question"></i>I'm flying in from interstate, when should I book my flights for?
+  a: <strong>If you're taking the Friday off</strong>, try and time your landing for around lunchtime or earlier. Some of us locals will be driving up in the afternoon, so you can ride with us. <br /> <strong>If you are flying after work</strong>, as early as possible. We will organise for locals who are leaving Melbourne after work to give you a lift. <br /> <strong>As for Sunday,</strong> as late as possible. We recommend not flying out any earlier than 4pm to avoid a rush. However if you need to get back earlier, we will figure it out!<br /><i>Feel free to message Stephen if you have any questions, and please <strong>forward him your itinerary</strong> once you've booked to help him keep track of everything.</i>
 - q: What's the food situation?
   a: Food is included in the cost of the trip. We will buy enough groceries to cover everyone's meals, and don't worry - we will cook as much as possible before we go!
 - q: I have a dietary requirement.
@@ -125,7 +127,7 @@ faqs:
 						</ul>
 						<p class="mt-4 text-lg text-gray-500">This cost does not include:</p>
 						<ul class="list-disc list-inside mt-4 text-lg text-gray-500">
-							<li>Flights if you're interstate</li>
+							<li><a href="#flights-faq-question">Flights</a> if you're interstate</li>
 							<li>Fuel for transport to/from the Airbnb (we will carpool wherever possible to reduce this)</li>
 							<li>Our love, coz that don't cost a thing</li>
 						</ul>
@@ -175,7 +177,7 @@ faqs:
 							<!-- Expand/collapse question button -->
 							<button type="button" @click="isOpen = !isOpen; isOpen ? $refs.slideDownWrapper.style.height = `${$refs.slideDown.scrollHeight}px` : $refs.slideDownWrapper.style.height = '0px'" class="text-left w-full flex justify-between items-start text-gray-400" aria-controls="faq-0" aria-expanded="false">
 								<span class="font-medium text-gray-900"  >
-									{{ faq.q }}
+									{{ faq.q | safe }}
 								</span>
 								<span class="ml-6 h-7 flex items-center" >
 									<svg class="h-6 w-6 transform transition-all duration-500 ease-out" :aria-checked="isOpen" :class="{'-rotate-180': isOpen, 'rotate-0': !isOpen }" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
