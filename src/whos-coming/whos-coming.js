@@ -86,4 +86,4 @@ function componentData() {
     }
 }
 
-// updateRow('rsvps', 'First Name', 'quick').then(response => { console.log('delete', response)});
+// updateRow('rsvps', 'First Name', 'Jamie', {paid: 'true'}).then(response => { console.log('delete', response)});
