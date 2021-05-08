@@ -1,7 +1,3 @@
-const SHEET_ID = '1c01UzMR6X6FlS74o6R4mgZDeuhK5eUH9BBxMjlyIIwE'
-const ACCESS_TOKEN = 'AIzaSyCIYyEYofw6O1kZjeQv2L1hmXFbHV1RTPo'
-const RANGE = 'A1:M100'
-
 function componentData() {
     return {
         init() {
@@ -86,4 +82,4 @@ function componentData() {
     }
 }
 
-// updateRow('rsvps', 'First Name', 'Jamie', {paid: 'true'}).then(response => { console.log('delete', response)});
+// updateRow('rsvps', 'First Name', 'Jo', {paid: 'true'}).then(response => { console.log('delete', response)});
