@@ -1,0 +1,75 @@
+---
+layout: body
+js: characters.js
+eleventyNavigation:
+  key: Character Assignments
+---
+
+<div x-data="componentData()" x-init="init()">
+    <div class="bg-white">
+        <div class="max-w-7xl mx-auto pb-16 px-4 sm:pb-24 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="max-w-xl mt-5 mx-auto text-xl text-gray-500">The murder mystery we will be taking part in is called:</p>
+            <p class="pt-4 mt-1 text-4xl font-typewriter text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">“The Auction”</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-purple-100 rounded-xl mb-20">
+		<div class="p-6 text-lg text-center">Click your name to reveal your invitation!</div>
+		<div x-show="!loaded" class="lds-ripple lds-ripple-purple"><div></div><div></div></div>
+		<div class="flex flex-wrap justify-center">
+			<template x-for="(player, index) in players" :key="player">
+				<div @click="selectPlayer(player.id)" :class="{'fadedin': loaded, 'fadedout': !loaded}" class="flex flex-col items-center m-6 cursor-pointer" x-bind:style="'transition-duration:'+ 100*index +'ms'" > <!-- x-transition:enter="transition" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"-->
+					<div class="w-20">
+						<img class= "rounded-full" :src="'/assets/profile_pictures/' + player.profilePicture" />
+					</div>
+					<div x-text="player.actorName"></div>
+				</div>
+			</template>
+		</div>
+	</div>
+
+	<div x-show="selectedPlayer != null" >
+		<div class="flex flex-col items-center lg:flex-row">
+			<div class="bg-paper w-2/3 lg:w-1/2 shadow-2xl mx-8">
+				<div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+					<div class="text-left font-typewriter text-lg text-black">
+						<p class="max-w-xl mt-5 mx-auto text-sm text-right pb-8">Farr, Out & Lee Gal<br />Soliciting Services</p>
+						<p class="max-w-xl mt-5 mx-auto">Dear <span class="font-bold" x-text="selectedPlayer.rsvps['First Name']">realname</span></p>
+						<p class="max-w-xl mt-5 mx-auto">Following the tragic death of the Baroness Audry von Munchen, her famous artifacts are being sold to the highest bidder.</p>
+						<p class="max-w-xl mt-5 mx-auto">We would welcome your presence at this auction and to the reading of her will.</p>
+						<p class="max-w-xl mt-5 mx-auto">Today you may be <span class="font-bold" x-text="selectedPlayer.rsvps['First Name']">realname</span>, but by 6pm on May 29th at Munchen Manor, you will be...</p>
+						<p class="text-center max-w-xl mt-5 mx-auto font-bold text-2xl" x-text="selectedPlayer.name">CharacterName</p>
+						<p class="text-center max-w-md mt-5 mx-auto text-xl" x-text="selectedPlayer.description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut cursus, dui a condimentum semper, ex dui maximus mi, eget dapibus leo erat laoreet magna. In hac habitasse platea dictumst. Nunc et sagittis augue. Ut elit ipsum, pellentesque vel ornare quis, pellentesque id quam. Donec tincidunt venenatis dolor a feugiat. Donec. </p>
+						<p class="max-w-xl mt-5 mx-auto">The evening shall be accompanied by dinner and refreshments.</p>
+						<p class="max-w-xl mt-5 mx-auto">Yours sincerely,</p>
+						<p class="pl-8 max-w-xl mt-5 mx-auto text-4xl font-handwritten">Freddie Farr, Attorney at Law</p>
+					</div>
+				</div>
+			</div>
+			<div class="w-1/2 p-8 self-center ">
+				<img class="shadow-2xl" src="/assets/newspaper.jpg" />
+			</div>
+		</div>
+
+		<div class="w-1/2 m-auto mt-20 bg-gray-100 rounded-2xl">
+			<div class="p-8">
+				<p class="max-w-xl mx-auto font-bold">Some things to note:</p>
+				<p class="max-w-xl mt-5 mx-auto">Your character's gender is: <span class="font-bold" x-text="selectedPlayer.gender">gender</span></p>
+				<p class="max-w-xl mt-5 mx-auto">Our event is set in Australia in the modern day, however we encourage you to get creative with your costume - the more exaggerated the better!</p>
+				<p class="max-w-xl mt-5 mx-auto">Some of the character descriptions specify particular nationalities or accents.</p>
+				<p class="max-w-xl mt-5 pl-8 mx-auto">If yours does, you must play your character as not Australian, but their nationality does not need to be the one specified in the description.</p>
+				<p class="max-w-xl mt-5 pl-8 mx-auto">If yours does not, your character may be from wherever you like, including Australia!</p>
+				<p class="max-w-xl mt-5 mx-auto">Accents, like costumes, often help to get into character, so feel free to be as silly and OTT as you like with it.</p>
+			</div>
+		</div>
+	</div>
+
+    <div class="text-center my-20">
+        <h1 class="text-4xl font-extrabold sm:text-5xl md:text-6xl">
+            <span class="block text-purple-600 tracking-tight">Questions?</span>
+            <span class="pt-8 block text-2xl text-blue-800">Check the <a href="/#faq-anchor">FAQ</a>, <br />post in the WhatsApp group<br /> or message Stephen directly!</a></span>
+        </h1>
+    </div>
+</div>

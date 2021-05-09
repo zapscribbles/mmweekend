@@ -13,6 +13,10 @@ module.exports = {
           myBlue: '#1E40AF',
           myDarkBlue: '#1E3A8A'
         },
+        fontFamily: {
+          'handwritten': ['Zeyada', 'cursive'],
+          'typewriter': ['Newsreader', 'serif'],
+        },
         // transitionDuration: {
         //   '0': '0ms',
         //   '50': '50ms',

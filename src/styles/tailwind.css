@@ -65,11 +65,10 @@ nav.btn.active {
 }
 
 .lds-ripple {
-  display: inline-block;
   position: relative;
   width: 80px;
   height: 80px;
-  margin: 30px;
+  margin: auto;
 }
 .lds-ripple div {
   position: absolute;
@@ -77,6 +76,9 @@ nav.btn.active {
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.lds-ripple-purple div {
+  @apply border-purple-700;
 }
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
@@ -106,4 +108,22 @@ nav.btn.active {
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   @apply opacity-100;
+}
+
+.bg-paper {
+  background-image: url('/assets/paper.jpg');
+  @apply bg-cover bg-no-repeat;
+}
+
+.fadedin {
+  opacity: 100;
+  visibility: visible;
+  transition: all;
+  transition-timing-function: ease-in-out;
+}
+.fadedout {
+  opacity: 0;
+  visibility: hidden;
+  transition: all;
+  transition-timing-function: ease-in-out;
 }

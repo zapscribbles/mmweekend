@@ -12,6 +12,14 @@ async function getData(tableName, orderCol) {
         .order(orderCol == undefined ? 'id' : orderCol)
 }
 
+async function getForeignData(tableName, foreignTable, foreignFields) {
+    // Gets all data from table, plus specified data from foreign table
+    // Foreign fields examples: '"First Name"', '"First Name", "Last Name"', '*'
+    return await supabase
+        .from(tableName)
+        .select(`*, ${foreignTable} (${foreignFields})`)
+}
+
 async function getRow(tableName, id) {
     return await supabase
         .from(tableName)

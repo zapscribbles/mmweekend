@@ -16,6 +16,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPassthroughCopy("assets/*.png", "assets");
     eleventyConfig.addPassthroughCopy("assets/*.jpg", "assets");
     eleventyConfig.addPassthroughCopy("assets/*.ico", "assets");
+    eleventyConfig.addPassthroughCopy("assets/profile_pictures/*.jpeg", "assets/profile_pictures");
 
     // This adds a variable that can be used in the template. In this case, we use build time to identify the current version of the site
     eleventyConfig.addShortcode('version', function () {
