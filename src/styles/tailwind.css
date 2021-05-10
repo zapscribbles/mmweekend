@@ -65,10 +65,10 @@ nav.btn.active {
 }
 
 .lds-ripple {
-  position: relative;
+  position: absolute;
   width: 80px;
   height: 80px;
-  margin: auto;
+  left: calc(50vw - 40px);
 }
 .lds-ripple div {
   position: absolute;
@@ -114,16 +114,9 @@ nav.btn.active {
   background-image: url('/assets/paper.jpg');
   @apply bg-cover bg-no-repeat;
 }
-
-.fadedin {
-  opacity: 100;
-  visibility: visible;
-  transition: all;
-  transition-timing-function: ease-in-out;
+.selected {
+  @apply opacity-100;
 }
-.fadedout {
-  opacity: 0;
-  visibility: hidden;
-  transition: all;
-  transition-timing-function: ease-in-out;
+.selected img {
+  @apply shadow-lg;
 }
