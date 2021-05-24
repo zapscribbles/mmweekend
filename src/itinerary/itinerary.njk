@@ -1,0 +1,120 @@
+---
+layout: body
+eleventyNavigation:
+  key: Itinerary
+  order: 4
+icons:
+- &transportIcon <i class="fas fa-cars text-myBlue"></i>
+- &foodIcon <i class="fas fa-utensils-alt text-myBlue"></i>
+- &planeLandingIcon <i class="fas fa-plane-arrival text-myBlue"></i>
+- &planeLeavingIcon <i class="fas fa-plane-departure text-myBlue"></i>
+- &logoIcon <img class="w-4 h-4" src="/assets/logo.png" />
+- &activitiesIcon <i class="far fa-chart-network text-myBlue"></i>
+itinerary:
+- date: Friday 28th May
+  events:
+  - name: Jamie lands
+    icon: *planeLandingIcon
+    time: 10:05 am
+  - name: Adam lands
+    icon: *planeLandingIcon
+    time: 11:05 am
+  - name: Jay & Ray land
+    icon: *planeLandingIcon
+    time: 12:35pm
+  - name: Mitch lands
+    icon: *planeLandingIcon
+    time: 12:40pm
+  - name: Jill & JC land
+    icon: *planeLandingIcon
+    time: 1 pm
+  - name: Adam, Jamie, Jay, Mitch & Ray head from airport to the manor via taxi
+    icon: *transportIcon
+    time: ~1 pm
+  - name: Jerrard, Jill, JC & Stephen head from airport to the manor via car
+    icon: *transportIcon
+    time: ~1:30 pm
+  - name: Locals arrive at the manor 
+    icon: *transportIcon
+    time: 4-6 pm
+  - name: Werewolf & other deceitful party games 
+    icon: *activitiesIcon
+    time: 6pm
+  - name: Dinner
+    icon: *foodIcon
+    time: 7pm
+- date: Saturday 29th May
+  events:
+  - name: Breakfast (17ppl)
+    icon: *foodIcon
+    time: 10 am
+  - name: Local activities (see <a href="/#activities-faq-question">FAQ</a>)
+    icon: *activitiesIcon
+    time: 12-4 pm
+  - name: Lunch (for those at the manor)
+    icon: *foodIcon
+    time: 1 pm
+  - name: Pick up platters & cake
+    icon: *foodIcon
+    time: 1:45 pm
+  - name: Manor residents get into costume
+    icon: *activitiesIcon
+    time: 4-6 pm
+  - name: Murder Mystery begins! 
+    icon: *logoIcon
+    time: 6 pm SHARP
+  - name: Dinner arrives
+    icon: *foodIcon
+    time: 7:30 pm
+  - name: Auction commences
+    icon: *foodIcon
+    time: ~9-9:30 pm
+  - name: Solution revealed!
+    icon: *logoIcon
+    time: 10 pm
+- date: Sunday 30th May
+  events:
+  - name: Breakfast? (19ppl)
+    icon: *foodIcon
+    time: 10 am
+  - name: Checkout
+    icon: *transportIcon
+    time: TBC
+  - name: Lunch in Brunswick (for anyone who wants to join)
+    icon: *foodIcon
+    time: 12 pm
+  - name: Jill & JC flight departs
+    icon: *planeLeavingIcon
+    time: 4 pm
+  - name: Mitch flight departs
+    icon: *planeLeavingIcon
+    time: 5:20 pm
+---
+
+<div class='day-block'>
+    {%- for day in itinerary %}
+        <div class="text-lg pb-2 lg:w-1/2 lg:m-auto">{{ day.date }}</div>
+        <div class="flow-root lg:w-1/2 lg:m-auto">
+            <ul class="mb-1">
+                {%- for event in day.events %}
+                    <li>
+                        <div class="relative pb-8">
+                            {% if loop.last == false %}
+                                <span class="absolute top-4 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+                            {% endif %}
+                            <div class="relative flex space-x-3 pt-2 pb-2 bg-white">
+                                <div class="w-10 h-10 bg-mint rounded-full flex justify-center items-center">
+                                    {{ event.icon | safe }}
+                                </div>
+                                <div class="min-w-0 flex-1 flex justify-between items-center space-x-4">
+                                    <div class="text-sm text-gray-500">{{ event.name | safe }}</div>
+                                    <div class="text-right text-sm whitespace-nowrap text-gray-500">{{ event.time }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    {%- endfor %}
+</div>
